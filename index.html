@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111715">
+  <meta name="description" content="Selected work by Justus Kontiola: 3D, motion, generative AI and creative automation.">
+  <title>Justus Kontiola — Selected Work</title>
+  <link rel="preload" as="image" href="assets/motion-graphics.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header container">
+    <a class="site-name" href="#top" aria-label="Justus Kontiola — back to top">JK</a>
+    <nav aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#pdf">PDF</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro container" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <h1 id="intro-title">Justus Kontiola</h1>
+        <p class="intro-role">3D, motion & generative AI.</p>
+      </div>
+      <div class="intro-image"><img src="assets/motion-graphics.jpeg" alt="Abstract blue 3D motion graphics" fetchpriority="high"></div>
+    </section>
+
+    <section class="work container" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><h2 id="work-title">Selected work</h2><span>9 projects</span></div>
+      <div class="project-grid">
+        <button class="project-card" data-project="genai" aria-label="Open Generative video tests">
+          <span class="project-image"><img loading="lazy" src="assets/genai-film.jpeg" alt="Four AI video scenes"></span>
+          <span class="project-info"><strong>Generative video tests</strong><small>Generative AI · 2026</small></span>
+        </button>
+        <button class="project-card" data-project="motion" aria-label="Open 3D motion graphics">
+          <span class="project-image"><img loading="lazy" src="assets/motion-graphics.jpeg" alt="Abstract 3D motion scene"></span>
+          <span class="project-info"><strong>3D motion graphics</strong><small>3D / Animation · 2017–2022</small></span>
+        </button>
+        <button class="project-card" data-project="architecture" aria-label="Open Architectural visualization">
+          <span class="project-image"><img loading="lazy" src="assets/architecture-film.jpeg" alt="Twilight architectural visualization"></span>
+          <span class="project-info"><strong>Architectural visualization</strong><small>WSP Finland · 2016–2026</small></span>
+        </button>
+        <button class="project-card" data-project="food" aria-label="Open Seasonal image variations">
+          <span class="project-image"><img loading="lazy" src="assets/seasonal-food.jpeg" alt="Seasonal food photography variations"></span>
+          <span class="project-info"><strong>Seasonal image variations</strong><small>ComfyUI / FLUX.2 Klein · 2026</small></span>
+        </button>
+        <button class="project-card" data-project="audiovisual" aria-label="Open Audio-reactive 3D visuals">
+          <span class="project-image"><img loading="lazy" src="assets/reactive-audiovisual.jpeg" alt="Iridescent abstract audiovisual image"></span>
+          <span class="project-info"><strong>Audio-reactive 3D visuals</strong><small>Blender / Electronic music · 2020–2023</small></span>
+        </button>
+        <button class="project-card" data-project="interiors" aria-label="Open Interior visualization">
+          <span class="project-image"><img loading="lazy" src="assets/interior-dining.jpeg" alt="Bright 3D interior rendering"></span>
+          <span class="project-info"><strong>Interior visualization</strong><small>3D / Rendering · 2023</small></span>
+        </button>
+        <button class="project-card" data-project="ui" aria-label="Open UI/UX prototypes">
+          <span class="project-image"><img loading="lazy" src="assets/ui-equalizer.jpeg" alt="Audio interface design"></span>
+          <span class="project-info"><strong>UI/UX prototypes</strong><small>Design / Development · 2024–2025</small></span>
+        </button>
+        <button class="project-card" data-project="automation" aria-label="Open Media automation workflows">
+          <span class="project-image"><img loading="lazy" src="assets/seasonal-workflow.jpeg" alt="ComfyUI node-based workflow"></span>
+          <span class="project-info"><strong>Media automation workflows</strong><small>n8n / Local LLMs · 2026</small></span>
+        </button>
+        <button class="project-card project-card-last" data-project="brand" aria-label="Open Palette-guided image generation">
+          <span class="project-image project-image-brand"><img loading="lazy" src="assets/brand-consistent-workflow.png" alt="Abstract images generated with a consistent palette"></span>
+          <span class="project-info"><strong>Palette-guided image generation</strong><small>ComfyUI / Color systems · 2026</small></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="about container" id="about" aria-labelledby="about-title">
+      <div class="section-heading"><h2 id="about-title">About</h2></div>
+      <div class="about-grid">
+        <p>I work with 3D visualization, animation, generative media and creative automation. My projects range from finished visuals to experiments and production tools.</p>
+        <div class="about-details"><span>Tools</span><p>Blender, After Effects, ComfyUI, Unreal Engine, Unity, n8n and AI-assisted development.</p><span>Background</span><p>BA in Photography, Lahti Institute of Design. Previously at WSP Finland.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container" id="pdf">
+    <span class="footer-location">Helsinki, Finland</span>
+    <a href="Portfolio_Justus_Kontiola.pdf" download>Download original PDF</a>
+  </footer>
+
+  <div class="project-overlay" id="project-overlay" aria-hidden="true">
+    <div class="overlay-backdrop" data-close-overlay></div>
+    <article class="project-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabindex="-1">
+      <div class="dialog-header"><span>Project details</span><button class="dialog-close" id="dialog-close" aria-label="Close project">Close <span aria-hidden="true">×</span></button></div>
+      <div class="dialog-scroll" id="dialog-scroll">
+        <div class="dialog-intro"><h2 id="dialog-title"></h2><p class="dialog-meta"><span id="dialog-client"></span><span id="dialog-year"></span></p></div>
+        <div class="dialog-hero" id="dialog-hero"></div>
+        <div class="dialog-copy"><p id="dialog-summary"></p><div class="dialog-side"><div id="dialog-tags"></div><div id="dialog-links"></div></div></div>
+        <div class="dialog-gallery" id="dialog-gallery"></div>
+        <div class="dialog-bottom"><button id="next-project">Next project</button></div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
