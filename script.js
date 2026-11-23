@@ -11,7 +11,11 @@ const projects = {
     tags: ['Generative AI', 'Motion guidance', 'Editing'],
     gallery: [],
     videos: [
-      { type: 'drive', id: '17vvzLC7uURlqrXFdWfhuo5s7pVyCDkTS', label: 'Video reel' }
+      {
+        type: 'drive',
+        id: '17vvzLC7uURlqrXFdWfhuo5s7pVyCDkTS',
+        label: 'Video reel'
+      }
     ],
     links: []
   },
@@ -25,7 +29,11 @@ const projects = {
     tags: ['3D', 'Animation', 'Rendering'],
     gallery: [],
     videos: [
-      { type: 'youtube', id: 'pMIFjTBngeo', label: 'Motion reel' }
+      {
+        type: 'youtube',
+        id: 'pMIFjTBngeo',
+        label: 'Motion reel'
+      }
     ],
     links: []
   },
@@ -38,12 +46,26 @@ const projects = {
     summary: 'Animated presentations, tram design and city-planning visuals.',
     tags: ['Architecture', '3D', 'Animation'],
     gallery: [
-      { src: asset('tram-visualization.jpeg'), caption: 'Tram visualization' },
-      { src: asset('urban-vision.jpeg'), caption: 'Urban vision' },
-      { src: asset('urban-plan.jpeg'), caption: 'Stylized urban plan', wide: true }
+      {
+        src: asset('tram-visualization.jpeg'),
+        caption: 'Tram visualization'
+      },
+      {
+        src: asset('urban-vision.jpeg'),
+        caption: 'Urban vision'
+      },
+      {
+        src: asset('urban-plan.jpeg'),
+        caption: 'Stylized urban plan',
+        wide: true
+      }
     ],
     videos: [
-      { type: 'youtube', id: 'IXYcCTH5P3Y', label: 'Visualization film' }
+      {
+        type: 'youtube',
+        id: 'IXYcCTH5P3Y',
+        label: 'Visualization film'
+      }
     ],
     links: []
   },
@@ -56,7 +78,11 @@ const projects = {
     summary: 'One food photograph adapted to different seasons while preserving its subject and composition.',
     tags: ['ComfyUI', 'FLUX.2 Klein', 'Image generation'],
     gallery: [
-      { src: asset('seasonal-workflow.jpeg'), caption: 'ComfyUI workflow', wide: true }
+      {
+        src: asset('seasonal-workflow.jpeg'),
+        caption: 'ComfyUI workflow',
+        wide: true
+      }
     ],
     links: []
   },
@@ -69,14 +95,34 @@ const projects = {
     summary: 'Audio-generated keyframes control 3D motion and lighting. Other studies combine music with abstract visuals.',
     tags: ['Blender', 'Audio-reactive 3D', 'Electronic music'],
     gallery: [
-      { src: asset('audiovisual-green.jpeg'), caption: 'Audiovisual experiment' },
-      { src: asset('audiovisual-orange.jpeg'), caption: 'Audiovisual experiment' },
-      { src: asset('audiovisual-purple.jpeg'), caption: 'Abstract 3D scene' },
-      { src: asset('audiovisual-green-organic.jpeg'), caption: 'Organic visual study' }
+      {
+        src: asset('audiovisual-green.jpeg'),
+        caption: 'Audiovisual experiment'
+      },
+      {
+        src: asset('audiovisual-orange.jpeg'),
+        caption: 'Audiovisual experiment'
+      },
+      {
+        src: asset('audiovisual-purple.jpeg'),
+        caption: 'Abstract 3D scene'
+      },
+      {
+        src: asset('audiovisual-green-organic.jpeg'),
+        caption: 'Organic visual study'
+      }
     ],
     videos: [
-      { type: 'youtube', id: 'JfAaK2cVu9I', label: '2020 project' },
-      { type: 'youtube', id: 'QhnKuapVBss', label: 'Audiovisual study' }
+      {
+        type: 'youtube',
+        id: 'JfAaK2cVu9I',
+        label: '2020 project'
+      },
+      {
+        type: 'youtube',
+        id: 'QhnKuapVBss',
+        label: 'Audiovisual study'
+      }
     ],
     links: []
   },
@@ -89,10 +135,22 @@ const projects = {
     summary: 'Room studies developed from 2D references into 3D scenes.',
     tags: ['3D', 'Interiors', 'Lighting'],
     gallery: [
-      { src: asset('interior-pink.jpeg'), caption: 'Living room' },
-      { src: asset('interior-bedroom.jpeg'), caption: 'Bedroom' },
-      { src: asset('interior-fireplace.jpeg'), caption: 'Living room' },
-      { src: asset('interior-nook.jpeg'), caption: 'Reading corner' }
+      {
+        src: asset('interior-pink.jpeg'),
+        caption: 'Living room'
+      },
+      {
+        src: asset('interior-bedroom.jpeg'),
+        caption: 'Bedroom'
+      },
+      {
+        src: asset('interior-fireplace.jpeg'),
+        caption: 'Living room'
+      },
+      {
+        src: asset('interior-nook.jpeg'),
+        caption: 'Reading corner'
+      }
     ],
     links: []
   },
@@ -104,7 +162,10 @@ const projects = {
     hero: asset('ui-equalizer.jpeg'),
     summary: 'Audio-software interface concepts, including an equalizer and synthesizer UI.',
     tags: ['UI/UX', 'Prototyping', 'AI-assisted development'],
+
+    // No extra image between the two videos.
     gallery: [],
+
     videos: [
       {
         type: 'drive',
@@ -117,7 +178,11 @@ const projects = {
         label: 'Synthesizer demo'
       }
     ],
+
+    // Embed the synthesizer video below the equalizer.
     embeddedVideos: [1],
+
+    // No external Google Drive link.
     links: []
   },
 
@@ -125,12 +190,28 @@ const projects = {
     title: 'Media automation workflows',
     client: '',
     year: '2026',
+
+    // First image: ComfyUI workflow.
     hero: asset('seasonal-workflow.jpeg'),
-    summary: 'Prototype pipelines for video production, publishing, feedback and dashboards.',
-    tags: ['n8n', 'Local LLMs', 'Automation'],
-    gallery: [
-      { src: asset('media-automation.jpeg'), caption: 'Automated media production pipeline', wide: true }
+
+    summary: 'A node-based ComfyUI workflow for generating seasonal variations from a single food photograph. Using FLUX.2 Klein and image references, the process adapts lighting, colors, backgrounds and atmosphere to different seasons while preserving the original food subject and composition. The workflow demonstrates how generative AI can support consistent visual production, turning one source image into a coordinated series of campaign-ready variations.',
+
+    tags: [
+      'ComfyUI',
+      'FLUX.2 Klein',
+      'Image-to-image',
+      'Creative automation'
     ],
+
+    // Second image: generated seasonal food variations.
+    gallery: [
+      {
+        src: asset('seasonal-food.jpeg'),
+        caption: 'Generated seasonal variations — different environments and moods created from the same original food photograph.',
+        wide: true
+      }
+    ],
+
     links: []
   },
 
@@ -146,7 +227,12 @@ const projects = {
   }
 };
 
+// --------------------------------------------------
+// GLOBAL ELEMENTS
+// --------------------------------------------------
+
 const order = Object.keys(projects);
+
 const overlay = document.getElementById('project-overlay');
 const dialog = overlay.querySelector('.project-dialog');
 const scrollArea = document.getElementById('dialog-scroll');
@@ -166,7 +252,10 @@ function getVideoUrl(video, autoplay = false) {
     return `https://drive.google.com/file/d/${id}/preview`;
   }
 
-  return `https://www.youtube-nocookie.com/embed/${id}?rel=0${autoplay ? '&autoplay=1' : ''}`;
+  return (
+    `https://www.youtube-nocookie.com/embed/${id}` +
+    `?rel=0${autoplay ? '&autoplay=1' : ''}`
+  );
 }
 
 function createVideoIframe(video, title, autoplay = false) {
@@ -174,7 +263,11 @@ function createVideoIframe(video, title, autoplay = false) {
 
   iframe.src = getVideoUrl(video, autoplay);
   iframe.title = `${title} — ${video.label}`;
-  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+  iframe.allow =
+    'accelerometer; autoplay; clipboard-write; encrypted-media; ' +
+    'gyroscope; picture-in-picture; web-share';
+
   iframe.allowFullscreen = true;
   iframe.loading = autoplay ? 'eager' : 'lazy';
 
@@ -190,9 +283,14 @@ function createVideoIframe(video, title, autoplay = false) {
 
 function playVideo(project, index) {
   const video = project.videos?.[index];
+
   if (!video) return;
 
-  const iframe = createVideoIframe(video, project.title, true);
+  const iframe = createVideoIframe(
+    video,
+    project.title,
+    true
+  );
 
   hero.replaceChildren(iframe);
 
@@ -210,22 +308,31 @@ function playVideo(project, index) {
 
 function renderProject(id) {
   const project = projects[id];
+
   if (!project) return;
 
   activeProject = id;
 
-  document.getElementById('dialog-title').textContent = project.title;
+  // TITLE AND METADATA
+
+  document.getElementById('dialog-title').textContent =
+    project.title;
 
   const client = document.getElementById('dialog-client');
+
   client.textContent = project.client;
   client.hidden = !project.client;
 
-  document.getElementById('dialog-year').textContent = project.year;
-  document.getElementById('dialog-summary').textContent = project.summary;
+  document.getElementById('dialog-year').textContent =
+    project.year;
+
+  document.getElementById('dialog-summary').textContent =
+    project.summary;
 
   // MAIN HERO IMAGE
 
   const heroImage = document.createElement('img');
+
   heroImage.src = project.hero;
   heroImage.alt = project.title;
 
@@ -253,28 +360,35 @@ function renderProject(id) {
   // PROJECT TAGS
 
   const tags = document.getElementById('dialog-tags');
+
   tags.className = 'dialog-tags';
 
-  tags.replaceChildren(...project.tags.map(label => {
-    const el = document.createElement('span');
+  tags.replaceChildren(
+    ...project.tags.map(label => {
+      const el = document.createElement('span');
 
-    el.className = 'dialog-tag';
-    el.textContent = label;
+      el.className = 'dialog-tag';
+      el.textContent = label;
 
-    return el;
-  }));
+      return el;
+    })
+  );
 
-  // VIDEO SWITCHING BUTTONS AND EXTERNAL LINKS
+  // VIDEO SWITCHING AND EXTERNAL LINKS
 
   const links = document.getElementById('dialog-links');
+
   links.replaceChildren();
 
   const switchableVideos = (project.videos || [])
     .map((video, index) => ({ video, index }))
-    .filter(({ index }) => !(project.embeddedVideos || []).includes(index));
+    .filter(({ index }) =>
+      !(project.embeddedVideos || []).includes(index)
+    );
 
   if (switchableVideos.length > 1) {
     const label = document.createElement('div');
+
     label.className = 'dialog-side-label';
     label.textContent = 'Videos';
 
@@ -286,6 +400,7 @@ function renderProject(id) {
       button.type = 'button';
       button.className = 'dialog-video-button';
       button.dataset.videoIndex = String(index);
+
       button.setAttribute('aria-pressed', 'false');
       button.textContent = `Play ${video.label}`;
 
@@ -297,17 +412,19 @@ function renderProject(id) {
     });
   }
 
-  links.append(...(project.links || []).map(item => {
-    const el = document.createElement('a');
+  links.append(
+    ...(project.links || []).map(item => {
+      const el = document.createElement('a');
 
-    el.className = 'dialog-link';
-    el.href = item.url;
-    el.target = '_blank';
-    el.rel = 'noopener noreferrer';
-    el.textContent = item.label;
+      el.className = 'dialog-link';
+      el.href = item.url;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
+      el.textContent = item.label;
 
-    return el;
-  }));
+      return el;
+    })
+  );
 
   // IMAGE GALLERY
 
@@ -322,11 +439,13 @@ function renderProject(id) {
     }
 
     const image = document.createElement('img');
+
     image.loading = 'lazy';
     image.src = item.src;
     image.alt = item.caption;
 
     const caption = document.createElement('figcaption');
+
     caption.textContent = item.caption;
 
     figure.append(image, caption);
@@ -334,19 +453,23 @@ function renderProject(id) {
   });
 
   // ADDITIONAL EMBEDDED VIDEOS
-  // UI/UX synthesizer demo appears below its image.
-  // Each embedded player works independently.
 
   (project.embeddedVideos || []).forEach(index => {
     const video = project.videos?.[index];
+
     if (!video) return;
 
     const figure = document.createElement('figure');
+
     figure.className = 'wide';
 
-    const iframe = createVideoIframe(video, project.title);
+    const iframe = createVideoIframe(
+      video,
+      project.title
+    );
 
     const caption = document.createElement('figcaption');
+
     caption.textContent = video.label;
 
     figure.append(iframe, caption);
@@ -354,13 +477,14 @@ function renderProject(id) {
   });
 
   gallery.replaceChildren(...galleryItems);
+
   gallery.hidden = galleryItems.length === 0;
 
   scrollArea.scrollTop = 0;
 }
 
 // --------------------------------------------------
-// OPEN AND CLOSE PROJECT
+// OPEN PROJECT
 // --------------------------------------------------
 
 function openProject(id) {
@@ -378,6 +502,10 @@ function openProject(id) {
   document.getElementById('dialog-close').focus();
 }
 
+// --------------------------------------------------
+// CLOSE PROJECT
+// --------------------------------------------------
+
 function closeProject() {
   if (!overlay.classList.contains('is-open')) return;
 
@@ -386,9 +514,11 @@ function closeProject() {
 
   document.body.classList.remove('modal-open');
 
-  // Remove video players so playback stops.
+  // Remove video players to stop playback.
   hero.replaceChildren();
-  document.getElementById('dialog-gallery').replaceChildren();
+
+  document.getElementById('dialog-gallery')
+    .replaceChildren();
 
   activeProject = null;
 
@@ -398,7 +528,7 @@ function closeProject() {
 }
 
 // --------------------------------------------------
-// EVENTS
+// PROJECT CARD EVENTS
 // --------------------------------------------------
 
 document.querySelectorAll('[data-project]').forEach(card => {
@@ -407,16 +537,27 @@ document.querySelectorAll('[data-project]').forEach(card => {
   });
 });
 
+// --------------------------------------------------
+// CLOSE BUTTONS
+// --------------------------------------------------
+
 document.getElementById('dialog-close')
   .addEventListener('click', closeProject);
 
 document.querySelector('[data-close-overlay]')
   .addEventListener('click', closeProject);
 
+// --------------------------------------------------
+// NEXT PROJECT
+// --------------------------------------------------
+
 document.getElementById('next-project')
   .addEventListener('click', () => {
     const index = order.indexOf(activeProject);
-    renderProject(order[(index + 1) % order.length]);
+
+    renderProject(
+      order[(index + 1) % order.length]
+    );
   });
 
 // --------------------------------------------------
@@ -445,10 +586,16 @@ document.addEventListener('keydown', event => {
   const first = focusable[0];
   const last = focusable[focusable.length - 1];
 
-  if (event.shiftKey && document.activeElement === first) {
+  if (
+    event.shiftKey &&
+    document.activeElement === first
+  ) {
     event.preventDefault();
     last.focus();
-  } else if (!event.shiftKey && document.activeElement === last) {
+  } else if (
+    !event.shiftKey &&
+    document.activeElement === last
+  ) {
     event.preventDefault();
     first.focus();
   }
