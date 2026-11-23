@@ -163,7 +163,6 @@ const projects = {
     summary: 'Audio-software interface concepts, including an equalizer and synthesizer UI.',
     tags: ['UI/UX', 'Prototyping', 'AI-assisted development'],
 
-    // No extra image between the two videos.
     gallery: [],
 
     videos: [
@@ -179,10 +178,7 @@ const projects = {
       }
     ],
 
-    // Embed the synthesizer video below the equalizer.
     embeddedVideos: [1],
-
-    // No external Google Drive link.
     links: []
   },
 
@@ -190,28 +186,21 @@ const projects = {
     title: 'Media automation workflows',
     client: '',
     year: '2026',
-
-    // First image: ComfyUI workflow.
     hero: asset('seasonal-workflow.jpeg'),
-
     summary: 'A node-based ComfyUI workflow for generating seasonal variations from a single food photograph. Using FLUX.2 Klein and image references, the process adapts lighting, colors, backgrounds and atmosphere to different seasons while preserving the original food subject and composition. The workflow demonstrates how generative AI can support consistent visual production, turning one source image into a coordinated series of campaign-ready variations.',
-
     tags: [
       'ComfyUI',
       'FLUX.2 Klein',
       'Image-to-image',
       'Creative automation'
     ],
-
-    // Second image: generated seasonal food variations.
     gallery: [
       {
         src: asset('seasonal-food.jpeg'),
-        caption: 'Generated seasonal variations — different environments and moods created from the same original food photograph.',
+        caption: 'Generated seasonal variations from the same original food photograph',
         wide: true
       }
     ],
-
     links: []
   },
 
@@ -220,9 +209,33 @@ const projects = {
     client: '',
     year: '2026',
     hero: asset('brand-consistent-workflow.png'),
-    summary: 'Extracts a reference palette and carries it into new abstract images.',
-    tags: ['ComfyUI', 'Color palette', 'Generative AI'],
-    gallery: [],
+
+    summary: 'A ComfyUI-based workflow for producing visually consistent image series from a reference color palette. Dominant and supporting colors are extracted from the source image and used to guide new generations. Subjects, forms, textures and compositions can change while the images retain a shared color identity. The workflow explores how palette constraints can create a coherent visual language for brand imagery, art direction and campaign concepts.',
+
+    tags: [
+      'ComfyUI',
+      'Color extraction',
+      'Generative AI',
+      'Visual consistency',
+      'Creative automation'
+    ],
+
+    gallery: [
+      {
+        src: asset('palette-example-01.jpeg'),
+        caption: 'Palette-guided generation — example 01',
+        wide: true
+      },
+      {
+        src: asset('palette-example-02.jpeg'),
+        caption: 'Palette-guided generation — example 02'
+      },
+      {
+        src: asset('palette-example-03.jpeg'),
+        caption: 'Palette-guided generation — example 03'
+      }
+    ],
+
     links: []
   }
 };
@@ -248,14 +261,9 @@ let lastFocused = null;
 function getVideoUrl(video, autoplay = false) {
   const id = encodeURIComponent(video.id);
 
-  if (video.type === 'drive') {
-    return `https://drive.google.com/file/d/${id}/preview`;
-  }
-
-  return (
-    `https://www.youtube-nocookie.com/embed/${id}` +
-    `?rel=0${autoplay ? '&autoplay=1' : ''}`
-  );
+  return video.type === 'drive'
+    ? `https://drive.google.com/file/d/${id}/preview`
+    : `https://www.youtube-nocookie.com/embed/${id}?rel=0${autoplay ? '&autoplay=1' : ''}`;
 }
 
 function createVideoIframe(video, title, autoplay = false) {
@@ -265,8 +273,7 @@ function createVideoIframe(video, title, autoplay = false) {
   iframe.title = `${title} — ${video.label}`;
 
   iframe.allow =
-    'accelerometer; autoplay; clipboard-write; encrypted-media; ' +
-    'gyroscope; picture-in-picture; web-share';
+    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
 
   iframe.allowFullscreen = true;
   iframe.loading = autoplay ? 'eager' : 'lazy';
@@ -283,16 +290,11 @@ function createVideoIframe(video, title, autoplay = false) {
 
 function playVideo(project, index) {
   const video = project.videos?.[index];
-
   if (!video) return;
 
-  const iframe = createVideoIframe(
-    video,
-    project.title,
-    true
+  hero.replaceChildren(
+    createVideoIframe(video, project.title, true)
   );
-
-  hero.replaceChildren(iframe);
 
   document.querySelectorAll('.dialog-video-button').forEach(button => {
     button.setAttribute(
@@ -308,7 +310,6 @@ function playVideo(project, index) {
 
 function renderProject(id) {
   const project = projects[id];
-
   if (!project) return;
 
   activeProject = id;
@@ -319,7 +320,6 @@ function renderProject(id) {
     project.title;
 
   const client = document.getElementById('dialog-client');
-
   client.textContent = project.client;
   client.hidden = !project.client;
 
@@ -329,20 +329,16 @@ function renderProject(id) {
   document.getElementById('dialog-summary').textContent =
     project.summary;
 
-  // MAIN HERO IMAGE
+  // MAIN IMAGE AND PRIMARY VIDEO
 
   const heroImage = document.createElement('img');
-
   heroImage.src = project.hero;
   heroImage.alt = project.title;
 
   hero.replaceChildren(heroImage);
 
-  // MAIN VIDEO PLAY BUTTON
-
   if (project.videos?.length) {
     const button = document.createElement('button');
-
     button.type = 'button';
     button.className = 'dialog-play';
 
@@ -360,24 +356,18 @@ function renderProject(id) {
   // PROJECT TAGS
 
   const tags = document.getElementById('dialog-tags');
-
   tags.className = 'dialog-tags';
 
-  tags.replaceChildren(
-    ...project.tags.map(label => {
-      const el = document.createElement('span');
-
-      el.className = 'dialog-tag';
-      el.textContent = label;
-
-      return el;
-    })
-  );
+  tags.replaceChildren(...project.tags.map(label => {
+    const el = document.createElement('span');
+    el.className = 'dialog-tag';
+    el.textContent = label;
+    return el;
+  }));
 
   // VIDEO SWITCHING AND EXTERNAL LINKS
 
   const links = document.getElementById('dialog-links');
-
   links.replaceChildren();
 
   const switchableVideos = (project.videos || [])
@@ -388,7 +378,6 @@ function renderProject(id) {
 
   if (switchableVideos.length > 1) {
     const label = document.createElement('div');
-
     label.className = 'dialog-side-label';
     label.textContent = 'Videos';
 
@@ -400,7 +389,6 @@ function renderProject(id) {
       button.type = 'button';
       button.className = 'dialog-video-button';
       button.dataset.videoIndex = String(index);
-
       button.setAttribute('aria-pressed', 'false');
       button.textContent = `Play ${video.label}`;
 
@@ -412,19 +400,17 @@ function renderProject(id) {
     });
   }
 
-  links.append(
-    ...(project.links || []).map(item => {
-      const el = document.createElement('a');
+  links.append(...(project.links || []).map(item => {
+    const el = document.createElement('a');
 
-      el.className = 'dialog-link';
-      el.href = item.url;
-      el.target = '_blank';
-      el.rel = 'noopener noreferrer';
-      el.textContent = item.label;
+    el.className = 'dialog-link';
+    el.href = item.url;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+    el.textContent = item.label;
 
-      return el;
-    })
-  );
+    return el;
+  }));
 
   // IMAGE GALLERY
 
@@ -439,13 +425,21 @@ function renderProject(id) {
     }
 
     const image = document.createElement('img');
-
     image.loading = 'lazy';
     image.src = item.src;
     image.alt = item.caption;
 
-    const caption = document.createElement('figcaption');
+    // Hide optional images if the files do not exist.
 
+    image.addEventListener('error', () => {
+      figure.remove();
+
+      if (!gallery.children.length) {
+        gallery.hidden = true;
+      }
+    });
+
+    const caption = document.createElement('figcaption');
     caption.textContent = item.caption;
 
     figure.append(image, caption);
@@ -456,11 +450,9 @@ function renderProject(id) {
 
   (project.embeddedVideos || []).forEach(index => {
     const video = project.videos?.[index];
-
     if (!video) return;
 
     const figure = document.createElement('figure');
-
     figure.className = 'wide';
 
     const iframe = createVideoIframe(
@@ -469,7 +461,6 @@ function renderProject(id) {
     );
 
     const caption = document.createElement('figcaption');
-
     caption.textContent = video.label;
 
     figure.append(iframe, caption);
@@ -477,7 +468,6 @@ function renderProject(id) {
   });
 
   gallery.replaceChildren(...galleryItems);
-
   gallery.hidden = galleryItems.length === 0;
 
   scrollArea.scrollTop = 0;
@@ -491,12 +481,10 @@ function openProject(id) {
   if (!projects[id]) return;
 
   lastFocused = document.activeElement;
-
   renderProject(id);
 
   overlay.classList.add('is-open');
   overlay.setAttribute('aria-hidden', 'false');
-
   document.body.classList.add('modal-open');
 
   document.getElementById('dialog-close').focus();
@@ -511,10 +499,10 @@ function closeProject() {
 
   overlay.classList.remove('is-open');
   overlay.setAttribute('aria-hidden', 'true');
-
   document.body.classList.remove('modal-open');
 
   // Remove video players to stop playback.
+
   hero.replaceChildren();
 
   document.getElementById('dialog-gallery')
@@ -577,7 +565,7 @@ document.addEventListener('keydown', event => {
 
   const focusable = [
     ...dialog.querySelectorAll(
-      'button:not([disabled]), a[href]'
+      'button:not([disabled]),a[href],iframe'
     )
   ].filter(el => el.getClientRects().length);
 
