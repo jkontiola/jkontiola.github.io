@@ -104,9 +104,7 @@ const projects = {
     hero: asset('ui-equalizer.jpeg'),
     summary: 'Audio-software interface concepts, including an equalizer and synthesizer UI.',
     tags: ['UI/UX', 'Prototyping', 'AI-assisted development'],
-    gallery: [
-      { src: asset('ui-synth.jpeg'), caption: 'Synthesizer UI', wide: true }
-    ],
+    gallery: [],
     videos: [
       {
         type: 'drive',
