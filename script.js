@@ -118,11 +118,6 @@ const projects = {
         id: 'JfAaK2cVu9I',
         label: '2020 project'
       },
-      {
-        type: 'youtube',
-        id: 'QhnKuapVBss',
-        label: 'Audiovisual study'
-      }
     ],
     links: []
   },
