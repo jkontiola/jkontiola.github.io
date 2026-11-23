@@ -156,9 +156,13 @@ const projects = {
     year: '2024–2025',
     hero: asset('ui-equalizer.jpeg'),
     summary: 'Audio-software interface concepts, including an equalizer and synthesizer UI.',
-    tags: ['UI/UX', 'Prototyping', 'AI-assisted development'],
+    tags: [
+      'UI/UX',
+      'Prototyping',
+      'AI-assisted development'
+    ],
 
-    // No image between the two video players.
+    // No extra image between the two videos.
     gallery: [],
 
     videos: [
@@ -174,10 +178,10 @@ const projects = {
       }
     ],
 
-    // Second video appears in the gallery.
+    // Embed the synthesizer demo below the equalizer.
     embeddedVideos: [1],
 
-    // No external Drive link.
+    // No external Google Drive link.
     links: []
   },
 
@@ -186,7 +190,7 @@ const projects = {
     client: '',
     year: '2026',
 
-    // First image: ComfyUI workflow.
+    // First image: seasonal generation workflow.
     hero: asset('seasonal-workflow.jpeg'),
 
     summary: 'A node-based ComfyUI workflow for generating seasonal variations from a single food photograph. Using FLUX.2 Klein and image references, the process adapts lighting, colors, backgrounds and atmosphere to different seasons while preserving the original food subject and composition. The workflow demonstrates how generative AI can support consistent visual production, turning one source image into a coordinated series of campaign-ready variations.',
@@ -198,7 +202,7 @@ const projects = {
       'Creative automation'
     ],
 
-    // Second image: generated food variations.
+    // Second image: finished seasonal variations.
     gallery: [
       {
         src: asset('seasonal-food.jpeg'),
@@ -215,10 +219,10 @@ const projects = {
     client: '',
     year: '2026',
 
-    // Main image: existing ComfyUI workflow.
+    // First image: ComfyUI workflow.
     hero: asset('brand-consistent-workflow.png'),
 
-    summary: 'A ComfyUI-based generative image workflow designed to create visually consistent image series from a reference color palette. The process extracts dominant and supporting colors from an input image and uses them to guide new image generation. Rather than reproducing the original composition, the system allows subjects, shapes, textures and visual styles to vary while maintaining a shared color identity. This makes it possible to explore different creative directions within a coherent visual language, with potential applications in brand imagery, art direction and campaign production.',
+    summary: 'A ComfyUI-based generative image workflow designed to create visually consistent image series from a reference color palette. The process extracts dominant and supporting colors from an original logo and its color palette, using those colors to guide the generation of new images. Rather than reproducing the original logo or composition, the workflow allows subjects, shapes, materials, textures and visual styles to vary while maintaining a recognizable color identity. The resulting images demonstrate how a shared palette can connect otherwise different visual concepts, with potential applications in brand imagery, art direction and campaign production.',
 
     tags: [
       'ComfyUI',
@@ -228,8 +232,15 @@ const projects = {
       'Creative automation'
     ],
 
-    // Three examples — corrected PNG filenames.
     gallery: [
+      // Original reference logo and color palette.
+      {
+        src: asset('Logo_with colorpalette.jpeg'),
+        caption: 'Original logo and reference color palette',
+        wide: true
+      },
+
+      // Three generated examples.
       {
         src: asset('palette-example-01.png'),
         caption: 'Palette-guided generation — example 01',
@@ -448,7 +459,9 @@ function renderProject(id) {
     })
   );
 
+  // --------------------------------------------------
   // IMAGE GALLERY
+  // --------------------------------------------------
 
   const gallery = document.getElementById('dialog-gallery');
   const galleryItems = [];
@@ -483,10 +496,12 @@ function renderProject(id) {
     galleryItems.push(figure);
   });
 
+  // --------------------------------------------------
   // ADDITIONAL EMBEDDED VIDEOS
+  // --------------------------------------------------
 
-  // Example: UI/UX synthesizer demo.
-  // The second video is separate from the primary player.
+  // UI/UX synthesizer demo appears below the first video.
+  // Both videos can be played independently.
 
   (project.embeddedVideos || []).forEach(index => {
     const video = project.videos?.[index];
@@ -548,7 +563,7 @@ function closeProject() {
 
   document.body.classList.remove('modal-open');
 
-  // Remove video players so playback stops.
+  // Remove video players to stop playback.
 
   hero.replaceChildren();
 
