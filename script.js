@@ -1,4 +1,3 @@
-
 const asset = filename => `assets/${filename}`;
 
 const projects = {
@@ -162,7 +161,6 @@ const projects = {
       'AI-assisted development'
     ],
 
-    // No extra image between the two videos.
     gallery: [],
 
     videos: [
@@ -178,10 +176,8 @@ const projects = {
       }
     ],
 
-    // Embed the synthesizer demo below the equalizer.
     embeddedVideos: [1],
 
-    // No external Google Drive link.
     links: []
   },
 
@@ -190,7 +186,6 @@ const projects = {
     client: '',
     year: '2026',
 
-    // First image: seasonal generation workflow.
     hero: asset('seasonal-workflow.jpeg'),
 
     summary: 'A node-based ComfyUI workflow for generating seasonal variations from a single food photograph. Using FLUX.2 Klein and image references, the process adapts lighting, colors, backgrounds and atmosphere to different seasons while preserving the original food subject and composition. The workflow demonstrates how generative AI can support consistent visual production, turning one source image into a coordinated series of campaign-ready variations.',
@@ -202,7 +197,6 @@ const projects = {
       'Creative automation'
     ],
 
-    // Second image: finished seasonal variations.
     gallery: [
       {
         src: asset('seasonal-food.jpeg'),
@@ -219,8 +213,8 @@ const projects = {
     client: '',
     year: '2026',
 
-    // First image: ComfyUI workflow.
-    hero: asset('brand-consistent-workflow.png'),
+    // Original logo and color palette as the first image.
+    hero: asset('Logo_with%20colorpalette.jpeg'),
 
     summary: 'A ComfyUI-based generative image workflow designed to create visually consistent image series from a reference color palette. The process extracts dominant and supporting colors from an original logo and its color palette, using those colors to guide the generation of new images. Rather than reproducing the original logo or composition, the workflow allows subjects, shapes, materials, textures and visual styles to vary while maintaining a recognizable color identity. The resulting images demonstrate how a shared palette can connect otherwise different visual concepts, with potential applications in brand imagery, art direction and campaign production.',
 
@@ -232,15 +226,8 @@ const projects = {
       'Creative automation'
     ],
 
+    // Three generated examples without a duplicate logo.
     gallery: [
-      // Original reference logo and color palette.
-      {
-        src: asset('Logo_with colorpalette.jpeg'),
-        caption: 'Original logo and reference color palette',
-        wide: true
-      },
-
-      // Three generated examples.
       {
         src: asset('palette-example-01.png'),
         caption: 'Palette-guided generation — example 01',
@@ -260,6 +247,7 @@ const projects = {
   }
 };
 
+
 // --------------------------------------------------
 // GLOBAL ELEMENTS
 // --------------------------------------------------
@@ -273,6 +261,7 @@ const hero = document.getElementById('dialog-hero');
 
 let activeProject = null;
 let lastFocused = null;
+
 
 // --------------------------------------------------
 // VIDEO HELPERS
@@ -290,6 +279,7 @@ function getVideoUrl(video, autoplay = false) {
     `?rel=0${autoplay ? '&autoplay=1' : ''}`
   );
 }
+
 
 function createVideoIframe(video, title, autoplay = false) {
   const iframe = document.createElement('iframe');
@@ -314,6 +304,7 @@ function createVideoIframe(video, title, autoplay = false) {
   return iframe;
 }
 
+
 function playVideo(project, index) {
   const video = project.videos?.[index];
 
@@ -335,6 +326,7 @@ function playVideo(project, index) {
   });
 }
 
+
 // --------------------------------------------------
 // PROJECT RENDERING
 // --------------------------------------------------
@@ -345,6 +337,7 @@ function renderProject(id) {
   if (!project) return;
 
   activeProject = id;
+
 
   // TITLE AND METADATA
 
@@ -362,6 +355,7 @@ function renderProject(id) {
   document.getElementById('dialog-summary').textContent =
     project.summary;
 
+
   // MAIN HERO IMAGE
 
   const heroImage = document.createElement('img');
@@ -370,6 +364,7 @@ function renderProject(id) {
   heroImage.alt = project.title;
 
   hero.replaceChildren(heroImage);
+
 
   // MAIN VIDEO PLAY BUTTON
 
@@ -390,6 +385,7 @@ function renderProject(id) {
     hero.append(button);
   }
 
+
   // PROJECT TAGS
 
   const tags = document.getElementById('dialog-tags');
@@ -406,6 +402,7 @@ function renderProject(id) {
       return el;
     })
   );
+
 
   // VIDEO BUTTONS AND EXTERNAL LINKS
 
@@ -459,6 +456,7 @@ function renderProject(id) {
     })
   );
 
+
   // --------------------------------------------------
   // IMAGE GALLERY
   // --------------------------------------------------
@@ -479,7 +477,7 @@ function renderProject(id) {
     image.src = item.src;
     image.alt = item.caption;
 
-    // Hide missing image files without showing broken icons.
+    // Hide missing images without showing broken icons.
     image.addEventListener('error', () => {
       figure.remove();
 
@@ -495,6 +493,7 @@ function renderProject(id) {
     figure.append(image, caption);
     galleryItems.push(figure);
   });
+
 
   // --------------------------------------------------
   // ADDITIONAL EMBEDDED VIDEOS
@@ -532,6 +531,7 @@ function renderProject(id) {
   scrollArea.scrollTop = 0;
 }
 
+
 // --------------------------------------------------
 // OPEN PROJECT
 // --------------------------------------------------
@@ -550,6 +550,7 @@ function openProject(id) {
 
   document.getElementById('dialog-close').focus();
 }
+
 
 // --------------------------------------------------
 // CLOSE PROJECT
@@ -577,6 +578,7 @@ function closeProject() {
   }
 }
 
+
 // --------------------------------------------------
 // PROJECT CARD EVENTS
 // --------------------------------------------------
@@ -587,6 +589,7 @@ document.querySelectorAll('[data-project]').forEach(card => {
   });
 });
 
+
 // --------------------------------------------------
 // CLOSE BUTTONS
 // --------------------------------------------------
@@ -596,6 +599,7 @@ document.getElementById('dialog-close')
 
 document.querySelector('[data-close-overlay]')
   .addEventListener('click', closeProject);
+
 
 // --------------------------------------------------
 // NEXT PROJECT
@@ -609,6 +613,7 @@ document.getElementById('next-project')
       order[(index + 1) % order.length]
     );
   });
+
 
 // --------------------------------------------------
 // KEYBOARD ACCESSIBILITY
