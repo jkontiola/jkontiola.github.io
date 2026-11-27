@@ -38,12 +38,12 @@ const projects = {
   },
 
   architecture: {
-    title: 'Architectural visualization',
+    title: 'Urban planning visualization',
     client: 'WSP Finland Oy',
     year: '2016–2026',
     hero: asset('architecture-film.jpeg'),
     summary: 'Animated presentations, tram design and city-planning visuals.',
-    tags: ['Architecture', '3D', 'Animation'],
+    tags: ['Urban planning', '3D', 'Animation'],
     gallery: [
       {
         src: asset('tram-visualization.jpeg'),
@@ -51,7 +51,7 @@ const projects = {
       },
       {
         src: asset('urban-vision.jpeg'),
-        caption: 'Urban vision'
+        caption: 'Urban planning visualization'
       },
       {
         src: asset('urban-plan.jpeg'),
