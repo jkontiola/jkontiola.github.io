@@ -126,7 +126,7 @@ const projects = {
     client: '',
     year: '2023',
     hero: asset('interior-dining.jpeg'),
-    summary: 'Room studies developed from 2D references into 3D scenes.',
+    summary: 'An interior visualization project exploring materials, lighting and composition.',
     tags: ['3D', 'Interiors', 'Lighting'],
     gallery: [
       {
